@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Providers;
+namespace Larafication\Providers;
 
+use Auth;
 use Illuminate\Support\Facades\Gate;
+use Larafication\Services\Authentication\Sentinel;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -13,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        'Larafication\Model' => 'Larafication\Policies\ModelPolicy',
     ];
 
     /**
@@ -25,6 +27,16 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        $this->registerSentinel();
+    }
+
+    public function registerSentinel()
+    {
+        Auth::extend('sentinel', function ($app, $name, array $config) {
+            return app('Larafication\Services\Authentication\SentinelGuard');
+        });
+        Auth::provider('sentinel-provider', function ($app, array $config) {
+            return app('Larafication\Services\User\SentinelProvider');
+        });
     }
 }

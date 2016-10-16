@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Larafication\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->bind(
+            'Illuminate\Auth\Passwords\TokenRepositoryInterface',
+            'Larafication\Services\Token\SentinelTokenRepository'
+        );
     }
 
     /**
@@ -23,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if ($this->app->environment() !== 'production') {
+            $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+        }
     }
 }

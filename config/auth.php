@@ -37,8 +37,8 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
+            'driver' => 'sentinel',
+            'provider' => 'sentinel-provider',
         ],
 
         'api' => [
@@ -65,15 +65,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
-        ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+         'sentinel' => [
+             'driver' => 'sentinel-provider'
+         ],
     ],
 
     /*
@@ -92,11 +86,11 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
-            'table' => 'password_resets',
+        'sentinel' => [
+            'provider' => 'sentinel',
+            'table' => 'reminders',
             'expire' => 60,
-        ],
+        ]
     ],
 
 ];

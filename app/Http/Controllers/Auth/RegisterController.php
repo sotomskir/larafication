@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Larafication\Http\Controllers\Auth;
 
-use App\User;
+use Cartalyst\Sentinel\Sentinel;
+use Larafication\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use Larafication\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -28,15 +29,20 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+    /**
+     * @var Sentinel
+     */
+    private $sentinel;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Sentinel $sentinel)
     {
         $this->middleware('guest');
+        $this->sentinel = $sentinel;
     }
 
     /**
@@ -57,15 +63,16 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return User
+     * @throws \InvalidArgumentException
      */
     protected function create(array $data)
     {
-        return User::create([
+        return $this->sentinel->register([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => $data['password'],
         ]);
     }
 }
