@@ -67,10 +67,10 @@
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
-                </div>
+            <div class="top-right links">
+                <a href="{{ url('/login') }}">Login</a>
+                <a href="{{ url('/register') }}">Register</a>
+            </div>
             @endif
 
             <div class="content">
@@ -85,7 +85,10 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+                <example title="123">Directive not loaded.</example>
+                <example2 title="123">Directive not loaded.</example>
             </div>
         </div>
+        <script src="assets/js/main.js"></script>
     </body>
 </html>
