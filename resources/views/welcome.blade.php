@@ -9,8 +9,11 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <!-- Styles -->
+        <link rel="stylesheet" href="assets/css/main.css">
+
         <style>
             html, body {
                 background-color: #fff;
@@ -19,6 +22,10 @@
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
+            }
+
+            .md-demo {
+                font-family: 'Roboto', sans-serif;
             }
 
             .full-height {
@@ -86,7 +93,75 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
                 <example title="123">Directive not loaded.</example>
-                <example2 title="123">Directive not loaded.</example>
+                <example2 title="123">Directive not loaded.</example2>
+
+                    <md-content class="md-demo">
+                        <h1>Material Design Demo</h1>
+                        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                            <md-button class="md-raised">Button</md-button>
+                            <md-button class="md-raised md-primary">Primary</md-button>
+                            <md-button ng-disabled="true" class="md-raised md-primary">Disabled</md-button>
+                            <md-button class="md-raised md-warn">Warn</md-button>
+                            <div class="label">Raised</div>
+                        </section>
+
+                        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                            <md-button class="md-fab" aria-label="Eat cake">
+                                <md-icon>cake</md-icon>
+                            </md-button>
+
+                            <md-button class="md-fab md-primary" aria-label="Use Android">
+                                <md-icon>android</md-icon>
+                            </md-button>
+
+                            <md-button class="md-fab" ng-disabled="true" aria-label="Comment">
+                                <md-icon>comment</md-icon>
+                            </md-button>
+
+                            <md-button class="md-fab md-primary md-hue-2" aria-label="Profile">
+                                <md-icon>people</md-icon>
+                            </md-button>
+
+                            <md-button class="md-fab md-mini" aria-label="Eat cake">
+                                <md-icon>cake</md-icon>
+                            </md-button>
+
+                            <md-button class="md-fab md-mini md-primary" aria-label="Use Android">
+                                <md-icon style="color: greenyellow;">android</md-icon>
+                            </md-button>
+                            <div class="label">FAB</div>
+                        </section>
+
+                        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                            <md-button class="md-primary md-hue-1">Primary Hue 1</md-button>
+                            <md-button class="md-warn md-raised md-hue-2">Warn Hue 2</md-button>
+                            <md-button class="md-accent">Accent</md-button>
+                            <md-button class="md-accent md-raised md-hue-1">Accent Hue 1</md-button>
+                            <div class="label">Themed</div>
+                        </section>
+
+                        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                            <md-button class="md-icon-button md-primary" aria-label="Settings">
+                                <md-icon md-font-icon="menu">menu</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button md-accent" aria-label="Favorite">
+                                <md-icon md-font-icon="favorite">favorite</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="More">
+                                <md-icon md-font-icon="more_vert">more_vert</md-icon>
+                            </md-button>
+                            <md-button href="http://google.com"
+                                       title="Launch Google.com in new window"
+                                       target="_blank"
+                                       ng-disabled="true"
+                                       aria-label="Google.com"
+                                       class="md-icon-button launch" >
+                                <md-icon md-font-icon="launch">launch</md-icon>
+                            </md-button>
+                            <div class="label">Icon Button</div>
+                        </section>
+                    </md-content>
+
             </div>
         </div>
         <script src="assets/js/main.js"></script>
