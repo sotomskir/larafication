@@ -18,6 +18,26 @@ export default {
     gulp: 'gulp/**/*.js'
   },
 
+  specs: {
+    src: 'tests/unit/**/*.php',
+    gulp: 'gulp/**/*.js'
+  },
+
+  tests: {
+    src: 'tests/integration/**/*Test.php',
+    gulp: 'gulp/**/*.js'
+  },
+
+  php: {
+    src: 'app/**/*.php',
+    gulp: 'gulp/**/*.js'
+  },
+
+  templates: {
+    src: 'frontend/js/**/*.html',
+    dest: 'public/templates'
+  },
+
   images: {
     src: 'frontend/images/**/*',
     dest: 'public/assets/images'

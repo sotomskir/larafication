@@ -18,3 +18,5 @@ gulp.on('stop', function () {
 tasks.forEach((task) => {
   require('./tasks/' + task);
 });
+
+gulp.task('default', ['dev']);

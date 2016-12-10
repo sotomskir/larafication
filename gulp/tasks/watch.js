@@ -9,6 +9,8 @@ gulp.task('watch', [], function() {
 
   // Scripts are automatically watched and rebundled by Watchify inside Browserify task
   gulp.watch(config.scripts.src, ['eslint', 'browserify']);
+  gulp.watch([config.specs.src, config.php.src], ['phpspec']);
+  gulp.watch([config.tests.src, config.php.src], ['phpunit']);
   gulp.watch(config.styles.src,  ['styles']);
   gulp.watch(config.images.src,  ['images']);
   gulp.watch(config.fonts.src,   ['fonts']);
