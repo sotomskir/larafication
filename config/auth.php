@@ -66,7 +66,7 @@ return [
 
     'providers' => [
          'sentinel' => [
-             'driver' => 'sentinel-provider'
+             'driver' => 'sentinel-provider',
          ],
     ],
 
@@ -90,7 +90,7 @@ return [
             'provider' => 'sentinel',
             'table' => 'reminders',
             'expire' => 60,
-        ]
+        ],
     ],
 
 ];

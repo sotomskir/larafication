@@ -1,4 +1,6 @@
-<?php namespace Larafication\Services\Token;
+<?php
+
+namespace Larafication\Services\Token;
 
 use Cartalyst\Sentinel\Sentinel as SentinelCore;
 use Cartalyst\Sentinel\Reminders\EloquentReminder;
@@ -6,8 +8,7 @@ use Illuminate\Auth\Passwords\TokenRepositoryInterface;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 /**
- * Class SentinelTokenRepository
- * @package Larafication\Services\Token
+ * Class SentinelTokenRepository.
  */
 class SentinelTokenRepository implements TokenRepositoryInterface
 {
@@ -18,6 +19,7 @@ class SentinelTokenRepository implements TokenRepositoryInterface
 
     /**
      * SentinelTokenRepository constructor.
+     *
      * @param SentinelCore $sentinel
      */
     public function __construct(SentinelCore $sentinel)
@@ -28,20 +30,23 @@ class SentinelTokenRepository implements TokenRepositoryInterface
     /**
      * Create a new token.
      *
-     * @param  \Illuminate\Contracts\Auth\CanResetPassword $user
+     * @param \Illuminate\Contracts\Auth\CanResetPassword $user
+     *
      * @return string
      */
     public function create(CanResetPasswordContract $user)
     {
         $token = $this->sentinel->getReminderRepository()->create($user);
+
         return $token->code;
     }
 
     /**
      * Determine if a token record exists and is valid.
      *
-     * @param  \Illuminate\Contracts\Auth\CanResetPassword $user
-     * @param  string $token
+     * @param \Illuminate\Contracts\Auth\CanResetPassword $user
+     * @param string                                      $token
+     *
      * @return bool
      */
     public function exists(CanResetPasswordContract $user, $token)
@@ -52,7 +57,8 @@ class SentinelTokenRepository implements TokenRepositoryInterface
     /**
      * Delete a token record.
      *
-     * @param  string $token
+     * @param string $token
+     *
      * @return void
      */
     public function delete($token)

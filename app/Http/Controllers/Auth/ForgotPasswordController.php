@@ -9,8 +9,7 @@ use Larafication\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 /**
- * Class ForgotPasswordController
- * @package Larafication\Http\Controllers\Auth
+ * Class ForgotPasswordController.
  */
 class ForgotPasswordController extends Controller
 {
@@ -50,7 +49,8 @@ class ForgotPasswordController extends Controller
      * Send a reset link to the given user.
      *
      * @param \Illuminate\Http\Request|Request $request
-     * @param SentinelReminder $reminder
+     * @param SentinelReminder                 $reminder
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function sendResetLinkEmail(Request $request, SentinelReminder $reminder)
