@@ -3,7 +3,7 @@
 namespace Larafication\Http\Controllers\Auth;
 
 use Cartalyst\Sentinel\Sentinel;
-use Larafication\User;
+use Larafication\Models\Users\User;
 use Validator;
 use Larafication\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -64,7 +64,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array $data
-     * @return User
+     * @return bool|User
      * @throws \InvalidArgumentException
      */
     protected function create(array $data)

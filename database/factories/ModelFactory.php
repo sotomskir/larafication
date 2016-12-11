@@ -11,13 +11,24 @@
 |
 */
 
-$factory->define(Larafication\User::class, function (Faker\Generator $faker) {
+use Larafication\Models\Team;
+use Larafication\Models\Users\User;
+
+$factory->define(User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
+        'name' => $faker->userName,
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(Team::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
     ];
 });

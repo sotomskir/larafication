@@ -155,7 +155,7 @@ class SentinelGuard implements StatefulGuard {
      */
     public function viaRemember()
     {
-        $user = $this->sentinel->getUser();
+        return $user = $this->sentinel->getUser();
     }
 
     /**

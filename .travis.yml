@@ -9,5 +9,7 @@ before_script:
   - composer install --no-interaction
 
 script:
-  - vendor/bin/phpcs --standard=psr2 src/
+  - php artisan key:generate
+#  - vendor/bin/phpcs --standard=psr2 src/
+  - vendor/bin/phpspec
   - vendor/bin/phpunit
