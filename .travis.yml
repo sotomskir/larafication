@@ -10,6 +10,8 @@ before_script:
 
 script:
   - php artisan key:generate
+  - touch database/testing.sqlite
+  - php artisan migrate:refresh --database sqlite_testing
 #  - vendor/bin/phpcs --standard=psr2 src/
   - vendor/bin/phpspec
   - vendor/bin/phpunit
