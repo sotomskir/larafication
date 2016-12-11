@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Larafication\Models\Users\User;
 
@@ -34,7 +32,7 @@ class RegisterControllerTest extends TestCase
             'name' => 'user',
             'email' => 'user@example.com',
             'password' => 'secret',
-            'password_confirmation' => 'secret'
+            'password_confirmation' => 'secret',
         ];
 
         $this->post('/register', $data);
@@ -55,5 +53,4 @@ class RegisterControllerTest extends TestCase
             ->press('Login')
             ->seePageIs('/home');
     }
-
 }

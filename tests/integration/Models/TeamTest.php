@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Larafication\Models\Team;
 use Larafication\Models\Users\User;
@@ -84,7 +83,7 @@ class TeamTest extends TestCase
         $team->addMembers($users);
         $this->assertCount(5, $team->members()->get());
 
-        $team->removeMembers($users->slice(0,2));
+        $team->removeMembers($users->slice(0, 2));
 
         $this->assertCount(3, $team->members()->get());
     }
@@ -140,5 +139,4 @@ class TeamTest extends TestCase
 
         $this->assertNull($team->leader);
     }
-
 }

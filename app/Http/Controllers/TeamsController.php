@@ -2,7 +2,6 @@
 
 namespace Larafication\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Larafication\Models\Team;
 
 class TeamsController extends Controller
@@ -25,6 +24,7 @@ class TeamsController extends Controller
     public function index()
     {
         $teams = Team::all();
+
         return view('teams.index', ['teams' => $teams]);
     }
 
@@ -36,6 +36,7 @@ class TeamsController extends Controller
     public function show(Team $team)
     {
         $team->load('leader', 'members');
+
         return view('teams.show', ['team' => $team]);
     }
 }
