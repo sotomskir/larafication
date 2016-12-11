@@ -13,5 +13,5 @@ script:
   - touch database/testing.sqlite
   - php artisan migrate:refresh --database sqlite_testing
 #  - vendor/bin/phpcs --standard=psr2 src/
-  - vendor/bin/phpspec
+  - vendor/bin/phpspec run
   - vendor/bin/phpunit
