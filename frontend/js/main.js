@@ -11,6 +11,7 @@ import './filters';
 import './controllers';
 import './services';
 import './directives';
+import './components/login/login.component'
 
 // create and bootstrap application
 const requires = [
@@ -19,7 +20,8 @@ const requires = [
     'app.controllers',
     'app.services',
     'app.directives',
-    'ngMaterial'
+    'ngMaterial',
+    'rsLogin'
 ];
 
 // mount on window for testing

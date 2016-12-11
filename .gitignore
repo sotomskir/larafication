@@ -1776,7 +1776,7 @@ wp-content/plugins/hello.php
 boot.php
 index.php
 install.php
-/config/*
+#/config/*
 !/config/config.php
 /controllers/*
 /init/*
@@ -2539,7 +2539,7 @@ gen### CakePHP template
 # CakePHP 3
 
 /vendor/*
-/config/app.php
+#/config/app.php
 
 /tmp/cache/models/*
 !/tmp/cache/models/empty
@@ -3580,3 +3580,21 @@ skin/install/
 # Ignore temp directory.
 /typo3temp/
 ### FlexBuilder template
+/frontend/js/main.js
+/frontend/js/on_config.js
+/frontend/js/on_run.js
+/frontend/js/templates.js
+/frontend/js/constants.js
+!/frontend/js/main.js
+!/frontend/js/on_config.js
+!/frontend/js/on_run.js
+!/frontend/js/templates.js
+!/frontend/js/constants.js
+!/app/
+!/resources/
+/public/assets/
+/public/css/
+/public/js/
+!/public/index.php
+/.phpstorm.meta.php
+/public/assets/css/main.css
