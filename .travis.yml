@@ -7,11 +7,11 @@ before_script:
   - cp .env.travis .env
   - composer self-update
   - composer install --no-interaction
-
-script:
   - php artisan key:generate
   - touch database/testing.sqlite
   - php artisan migrate:refresh --database sqlite_testing
-#  - vendor/bin/phpcs --standard=psr2 src/
+
+script:
+  - vendor/bin/phpcs --standard=psr2 app/
   - vendor/bin/phpspec run
   - vendor/bin/phpunit
