@@ -6,7 +6,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <h1>Teams</h1>
                     <div class="btn-group">
-                        <a href="#" class="btn btn-default">New Team</a>
+                        <a href="/teams/create" class="btn btn-default">New Team</a>
                     </div>
                 <ul>
                 @foreach($teams as $team)

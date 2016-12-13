@@ -32,6 +32,7 @@ class RegisterControllerTest extends TestCase
     {
         $data = [
             'name' => 'user',
+
             'email' => 'user@example.com',
             'password' => 'secret',
             'password_confirmation' => 'secret'
