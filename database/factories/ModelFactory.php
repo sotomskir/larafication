@@ -29,6 +29,6 @@ $factory->define(User::class, function (Faker\Generator $faker) {
 
 $factory->define(Team::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'name' => $faker->word,
     ];
 });

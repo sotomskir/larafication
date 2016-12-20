@@ -11,11 +11,23 @@
                 <form action="/teams" method="post">
                     {{ method_field('PUT') }}
                     {{ csrf_field() }}
-                    <label>Team name</label>
-                    <input type="text" name="name"/>
+                    <div class="form-group">
+                        <label for="team-name">Team name</label>
+                        <input type="text" id="team-name" name="name" class="form-control"/>
+                    </div>
 
-                    <input type="submit" value="Save"/>
+                    <div class="form-group">
+                        <label for="team-leader">Team leader</label>
+                        <select id="team-leader" name="leader" class="form-control">
+                            @foreach($users as $user)
+                                <option value="{{ $user->id }}">{{ $user->name.', '.$user->email }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <input type="submit" class="btn btn-primary" value="Save"/>
                 </form>
+
             </div>
         </div>
     </div>

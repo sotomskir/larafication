@@ -36,8 +36,9 @@ class TeamsController extends Controller
      */
     public function show(Team $team)
     {
+        $users = User::all();
         $team->load('leader', 'members');
-        return view('teams.show', ['team' => $team]);
+        return view('teams.show', compact('team', 'users'));
     }
 
 
@@ -48,7 +49,8 @@ class TeamsController extends Controller
      */
     public function create()
     {
-        return view('teams.create');
+        $users = User::all();
+        return view('teams.create', compact('users'));
     }
 
     /**
@@ -63,6 +65,7 @@ class TeamsController extends Controller
             'name' => 'required|max:100',
         ]);
         $team = new Team($request->all());
+        $team->setTeamLeader(User::find($request->leader));
         $team->save();
         return redirect('/teams/' . $team->id);
     }
@@ -93,6 +96,8 @@ class TeamsController extends Controller
         ]);
 
         $team->update($request->all());
+        $team->setTeamLeader(User::find($request->leader));
+        $team->save();
         return redirect('/teams/' . $team->id);
     }
 
@@ -107,4 +112,32 @@ class TeamsController extends Controller
         $team->delete();
         return redirect('/teams');
     }
+
+    /**
+     * Remove member from a team.
+     *
+     * @param  Team $team
+     * @param User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function removeMember(Team $team, User $user)
+    {
+        $team->removeMembers($user);
+        return redirect("/teams/$team->id");
+    }
+
+    /**
+     * Add a team member.
+     *
+     * @param Request $request
+     * @param  Team $team
+     * @return \Illuminate\Http\Response
+     */
+    public function addMember(Request $request, Team $team)
+    {
+        $user = $request->user;
+        $team->addMembers($user);
+        return redirect("/teams/$team->id");
+    }
+
 }

@@ -33,6 +33,11 @@ export default {
     gulp: 'gulp/**/*.js'
   },
 
+  blade: {
+    src: 'resources/views/**/*.blade.php',
+    gulp: 'gulp/**/*.js'
+  },
+
   templates: {
     src: 'frontend/js/**/*.html',
     dest: 'public/templates'

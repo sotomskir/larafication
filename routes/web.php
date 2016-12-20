@@ -23,6 +23,8 @@ Route::get('/teams', 'TeamsController@index');
 Route::get('/teams/create', 'TeamsController@create');
 Route::get('/teams/{team}', 'TeamsController@show');
 Route::get('/teams/{team}/edit', 'TeamsController@edit');
+Route::get('/teams/{team}/members/{user}/remove', 'TeamsController@removeMember');
 Route::post('/teams/{team}', 'TeamsController@update');
 Route::put('/teams', 'TeamsController@store');
 Route::delete('/teams/{team}', 'TeamsController@destroy');
+Route::put('/teams/{team}/members', 'TeamsController@addMember');
