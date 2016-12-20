@@ -1,4 +1,6 @@
-<?php namespace Larafication\Services\Authentication;
+<?php
+
+namespace Larafication\Services\Authentication;
 
 use Cartalyst\Sentinel\Sentinel;
 use Illuminate\Contracts\Auth\StatefulGuard;
@@ -6,11 +8,10 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Cartalyst\Sentinel\Sentinel as SentinelCore;
 
 /**
- * Class Sentinel
- * @package Larafication
+ * Class Sentinel.
  */
-class SentinelGuard implements StatefulGuard {
-
+class SentinelGuard implements StatefulGuard
+{
     /**
      * @var SentinelCore
      */
@@ -18,6 +19,7 @@ class SentinelGuard implements StatefulGuard {
 
     /**
      * Sentinel constructor.
+     *
      * @param SentinelCore $sentinel
      */
     public function __construct(Sentinel $sentinel)
@@ -68,7 +70,8 @@ class SentinelGuard implements StatefulGuard {
     /**
      * Validate a user's credentials.
      *
-     * @param  array $credentials
+     * @param array $credentials
+     *
      * @return bool
      */
     public function validate(array $credentials = [])
@@ -79,7 +82,8 @@ class SentinelGuard implements StatefulGuard {
     /**
      * Set the current user.
      *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable $user
+     * @param \Illuminate\Contracts\Auth\Authenticatable $user
+     *
      * @return void
      */
     public function setUser(Authenticatable $user)
@@ -90,9 +94,10 @@ class SentinelGuard implements StatefulGuard {
     /**
      * Attempt to authenticate a user using the given credentials.
      *
-     * @param  array $credentials
-     * @param  bool $remember
-     * @param  bool $login
+     * @param array $credentials
+     * @param bool  $remember
+     * @param bool  $login
+     *
      * @return bool
      */
     public function attempt(array $credentials = [], $remember = false, $login = true)
@@ -103,7 +108,8 @@ class SentinelGuard implements StatefulGuard {
     /**
      * Log a user into the application without sessions or cookies.
      *
-     * @param  array $credentials
+     * @param array $credentials
+     *
      * @return bool
      */
     public function once(array $credentials = [])
@@ -114,8 +120,9 @@ class SentinelGuard implements StatefulGuard {
     /**
      * Log a user into the application.
      *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable $user
-     * @param  bool $remember
+     * @param \Illuminate\Contracts\Auth\Authenticatable $user
+     * @param bool                                       $remember
+     *
      * @return void
      */
     public function login(Authenticatable $user, $remember = false)
@@ -126,25 +133,29 @@ class SentinelGuard implements StatefulGuard {
     /**
      * Log the given user ID into the application.
      *
-     * @param  mixed $id
-     * @param  bool $remember
+     * @param mixed $id
+     * @param bool  $remember
+     *
      * @return \Illuminate\Contracts\Auth\Authenticatable
      */
     public function loginUsingId($id, $remember = false)
     {
         $user = $this->sentinel->getUserRepository()->findById($id);
+
         return $this->login($user, $remember);
     }
 
     /**
      * Log the given user ID into the application without sessions or cookies.
      *
-     * @param  mixed $id
+     * @param mixed $id
+     *
      * @return bool
      */
     public function onceUsingId($id)
     {
         $user = $this->sentinel->getUserRepository()->findById($id);
+
         return $this->sentinel->stateless($user);
     }
 
