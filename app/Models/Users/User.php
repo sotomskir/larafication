@@ -12,13 +12,19 @@ use Larafication\Models\Team;
  * Larafication\Models\Users\User
  *
  * @property-read \Illuminate\Database\Eloquent\Collection|\Cartalyst\Sentinel\Roles\EloquentRole[] $roles
- * @property-read \Illuminate\Database\Eloquent\Collection|\Cartalyst\Sentinel\Persistences\EloquentPersistence[] $persistences
- * @property-read \Illuminate\Database\Eloquent\Collection|\Cartalyst\Sentinel\Activations\EloquentActivation[] $activations
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Cartalyst\Sentinel\Persistences\EloquentPersistence[]
+ * $persistences
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Cartalyst\Sentinel\Activations\EloquentActivation[]
+ * $activations
  * @property-read \Illuminate\Database\Eloquent\Collection|\Cartalyst\Sentinel\Reminders\EloquentReminder[] $reminders
  * @property-read \Illuminate\Database\Eloquent\Collection|\Cartalyst\Sentinel\Throttling\EloquentThrottle[] $throttle
  * @property mixed $permissions
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $unreadNotifications
+ * @property-read
+ * \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[]
+ * $notifications
+ * @property-read
+ * \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[]
+ * $unreadNotifications
  * @mixin \Eloquent
  * @property integer $id
  * @property string $name
@@ -33,7 +39,9 @@ use Larafication\Models\Team;
  * @property \Carbon\Carbon $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\Larafication\Models\Team[] $leadedTeams
  * @property-read \Illuminate\Database\Eloquent\Collection|\Larafication\Models\Team[] $teams
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $readNotifications
+ * @property-read
+ * \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[]
+ * $readNotifications
  * @method static \Illuminate\Database\Query\Builder|\Larafication\Models\Users\User whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Larafication\Models\Users\User whereName($value)
  * @method static \Illuminate\Database\Query\Builder|\Larafication\Models\Users\User whereEmail($value)
@@ -70,14 +78,18 @@ class User extends EloquentUser implements CanResetPassword, Authenticatable
 
     public function joinTeams($teams)
     {
-        if(!$teams) throw new \InvalidArgumentException();
+        if (!$teams) {
+            throw new \InvalidArgumentException();
+        }
 
         $this->teams()->attach($teams);
     }
 
     public function leaveTeams($teams)
     {
-        if(!$teams) throw new \InvalidArgumentException();
+        if (!$teams) {
+            throw new \InvalidArgumentException();
+        }
 
         $this->teams()->detach($teams);
     }

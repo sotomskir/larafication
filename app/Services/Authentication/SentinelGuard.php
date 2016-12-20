@@ -9,7 +9,8 @@ use Cartalyst\Sentinel\Sentinel as SentinelCore;
  * Class Sentinel
  * @package Larafication
  */
-class SentinelGuard implements StatefulGuard {
+class SentinelGuard implements StatefulGuard
+{
 
     /**
      * @var SentinelCore

@@ -139,5 +139,4 @@ class TeamsController extends Controller
         $team->addMembers($user);
         return redirect("/teams/$team->id");
     }
-
 }

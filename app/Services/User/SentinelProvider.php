@@ -8,7 +8,8 @@ use Illuminate\Contracts\Auth\UserProvider;
  * Class SentinelProvider
  * @package Larafication\Services\User
  */
-class SentinelProvider implements UserProvider {
+class SentinelProvider implements UserProvider
+{
     /**
      * @var Sentinel
      */
