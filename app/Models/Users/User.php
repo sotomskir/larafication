@@ -1,4 +1,6 @@
-<?php namespace Larafication\Models\Users;
+<?php
+
+namespace Larafication\Models\Users;
 
 use Illuminate\Auth\Passwords\CanResetPassword as ResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable;

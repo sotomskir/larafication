@@ -3,7 +3,6 @@
 namespace Larafication\Providers;
 
 use Auth;
-use Illuminate\Support\Facades\Gate;
 use Larafication\Services\Authentication\Sentinel;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
