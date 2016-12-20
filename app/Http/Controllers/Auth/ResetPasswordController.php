@@ -3,7 +3,6 @@
 namespace Larafication\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Larafication\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Larafication\Services\Reminder\SentinelReminder;
@@ -37,7 +36,8 @@ class ResetPasswordController extends Controller
      * Reset the given user's password.
      *
      * @param \Illuminate\Http\Request|Request $request
-     * @param SentinelReminder $reminder
+     * @param SentinelReminder                 $reminder
+     *
      * @return \Illuminate\Http\Response
      */
     public function reset(Request $request, SentinelReminder $reminder)
@@ -68,8 +68,9 @@ class ResetPasswordController extends Controller
     /**
      * Reset the given user's password.
      *
-     * @param  \Illuminate\Contracts\Auth\CanResetPassword $user
-     * @param  string $password
+     * @param \Illuminate\Contracts\Auth\CanResetPassword $user
+     * @param string                                      $password
+     *
      * @return void
      */
     protected function resetPassword($user, $password)
