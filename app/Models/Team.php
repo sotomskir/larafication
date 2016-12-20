@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Larafication\Models\Users\User;
 
 /**
- * Larafication\Models\Team
+ * Larafication\Models\Team.
  *
  * @property-read \Larafication\Models\Users\User $leader
  * @property-read \Illuminate\Database\Eloquent\Collection|\Larafication\Models\Users\User[] $members
@@ -18,7 +18,7 @@ class Team extends Model
 
     public function addMembers($users)
     {
-        if (!$users) {
+        if (! $users) {
             throw new \InvalidArgumentException;
         }
         $this->members()->attach($users);
@@ -26,7 +26,7 @@ class Team extends Model
 
     public function removeMembers($users)
     {
-        if (!$users) {
+        if (! $users) {
             throw new \InvalidArgumentException;
         }
         $this->members()->detach($users);

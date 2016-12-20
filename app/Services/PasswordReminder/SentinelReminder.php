@@ -1,12 +1,12 @@
-<?php namespace Larafication\Services\Reminder;
+<?php
 
-use Closure;
+namespace Larafication\Services\Reminder;
+
 use Cartalyst\Sentinel\Sentinel;
 use Illuminate\Auth\Passwords\PasswordBroker as PasswordBrokerLaravel;
 
 /**
- * Class SentinelReminder
- * @package Larafication\Services\Reminder
+ * Class SentinelReminder.
  */
 class SentinelReminder extends PasswordBrokerLaravel
 {
@@ -17,6 +17,7 @@ class SentinelReminder extends PasswordBrokerLaravel
 
     /**
      * SentinelReminder constructor.
+     *
      * @param Sentinel $sentinel
      */
     public function __construct(Sentinel $sentinel)
@@ -32,6 +33,7 @@ class SentinelReminder extends PasswordBrokerLaravel
      * @param $user
      * @param $token
      * @param $password
+     *
      * @return bool
      */
     public function complete($user, $token, $password)

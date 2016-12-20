@@ -1,6 +1,7 @@
-<?php namespace Larafication\Models\Users;
+<?php
 
-use Cartalyst\Sentinel\Users\UserInterface;
+namespace Larafication\Models\Users;
+
 use Illuminate\Auth\Passwords\CanResetPassword as ResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\CanResetPassword;
@@ -9,7 +10,7 @@ use Cartalyst\Sentinel\Users\EloquentUser;
 use Larafication\Models\Team;
 
 /**
- * Larafication\Models\Users\User
+ * Larafication\Models\Users\User.
  *
  * @property-read \Illuminate\Database\Eloquent\Collection|\Cartalyst\Sentinel\Roles\EloquentRole[] $roles
  * @property-read \Illuminate\Database\Eloquent\Collection|\Cartalyst\Sentinel\Persistences\EloquentPersistence[]
@@ -26,7 +27,8 @@ use Larafication\Models\Team;
  * \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[]
  * $unreadNotifications
  * @mixin \Eloquent
- * @property integer $id
+ *
+ * @property int $id
  * @property string $name
  * @property string $email
  * @property string $password
@@ -42,6 +44,7 @@ use Larafication\Models\Team;
  * @property-read
  * \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[]
  * $readNotifications
+ *
  * @method static \Illuminate\Database\Query\Builder|\Larafication\Models\Users\User whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Larafication\Models\Users\User whereName($value)
  * @method static \Illuminate\Database\Query\Builder|\Larafication\Models\Users\User whereEmail($value)
@@ -78,7 +81,7 @@ class User extends EloquentUser implements CanResetPassword, Authenticatable
 
     public function joinTeams($teams)
     {
-        if (!$teams) {
+        if (! $teams) {
             throw new \InvalidArgumentException();
         }
 
@@ -87,7 +90,7 @@ class User extends EloquentUser implements CanResetPassword, Authenticatable
 
     public function leaveTeams($teams)
     {
-        if (!$teams) {
+        if (! $teams) {
             throw new \InvalidArgumentException();
         }
 

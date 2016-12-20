@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Larafication\Models\Team;
 use Larafication\Models\Users\User;
@@ -15,7 +13,7 @@ class TeamsControllerTest extends TestCase
     {
         $team = factory(Team::class)->create();
 
-        $this->visit("/teams")->assertResponseOk();
+        $this->visit('/teams')->assertResponseOk();
         $this->visit("/teams/$team->id")->assertResponseOk();
         $this->visit("/teams/$team->id/edit")->assertResponseOk();
         $this->delete("/teams/$team->id")->assertResponseStatus(302);
@@ -29,7 +27,7 @@ class TeamsControllerTest extends TestCase
         Sentinel::activate($user);
 
         $this->actingAs($user)
-            ->visit("/teams")
+            ->visit('/teams')
             ->see($teams[0]->name)
             ->see($teams[1]->name)
             ->see($teams[2]->name);
@@ -69,7 +67,7 @@ class TeamsControllerTest extends TestCase
         Sentinel::activate($user);
 
         $this->actingAs($user)
-            ->visit("/teams/create")
+            ->visit('/teams/create')
             ->type('Team 1', 'name')
             ->press('Save')
             ->assertResponseStatus(200);
@@ -94,7 +92,7 @@ class TeamsControllerTest extends TestCase
         $team = Team::find($team->id);
         $this->assertEquals('Team 1', $team->name);
     }
-    
+
     /** @test */
     public function it_can_remove_member_from_a_team()
     {
@@ -106,7 +104,7 @@ class TeamsControllerTest extends TestCase
         $this->assertCount(2, $team->members);
 
         $this->actingAs($users[0])
-            ->visit("/teams/$team->id/members/".$users[0]->id."/remove")
+            ->visit("/teams/$team->id/members/".$users[0]->id.'/remove')
             ->seePageIs("/teams/$team->id")
             ->assertResponseStatus(200);
     //TODO: fix this
@@ -122,7 +120,7 @@ class TeamsControllerTest extends TestCase
         $this->assertCount(0, $team->members);
 
         $this->actingAs($users[0])
-            ->put("/teams/$team->id/members", [ 'user' => $users[0]->id ])
+            ->put("/teams/$team->id/members", ['user' => $users[0]->id])
             ->assertResponseStatus(302);
 
     //TODO: fix this
